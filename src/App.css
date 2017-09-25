@@ -1,0 +1,339 @@
+@import url(~antd/dist/antd.css);
+@import url(~video-react/dist/video-react.css);
+@import url(../node_modules/font-awesome/css/font-awesome.min.css);
+.App {
+  position: relative;
+  max-width: 500px;
+  height: 100%;
+  margin: auto;
+  background: url("images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .App .header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/header.png");
+    background-size: 100%;
+    background-repeat: no-repeat; }
+  .App .logo {
+    width: 50%;
+    margin: auto;
+    padding-top: 95px; }
+  .App .main-content {
+    width: 100%;
+    margin: auto;
+    padding-top: 20px; }
+    .App .main-content .login-warpper {
+      width: 60%;
+      margin: auto; }
+      .App .main-content .login-warpper .ant-input-prefix .fa {
+        font-size: 16px;
+        color: #F89448;
+        margin-left: 8px; }
+      .App .main-content .login-warpper .ant-input {
+        border: 2px solid #F89448;
+        background-color: #FFF2EA; }
+        .App .main-content .login-warpper .ant-input::-webkit-input-placeholder {
+          /* WebKit, Blink, Edge */
+          color: #F89448;
+          font-weight: bold; }
+        .App .main-content .login-warpper .ant-input:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 */
+          color: #F89448;
+          font-weight: bold; }
+        .App .main-content .login-warpper .ant-input::-moz-placeholder {
+          /* Mozilla Firefox 19+ */
+          color: #F89448;
+          font-weight: bold; }
+        .App .main-content .login-warpper .ant-input:-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: #F89448;
+          font-weight: bold; }
+        .App .main-content .login-warpper .ant-input::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: #F89448;
+          font-weight: bold; }
+      .App .main-content .login-warpper .ant-input,
+      .App .main-content .login-warpper .ant-input:focus {
+        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2); }
+      .App .main-content .login-warpper .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 39px; }
+      .App .main-content .login-warpper .ant-form-item {
+        margin-bottom: 10px; }
+      .App .main-content .login-warpper .ant-input-lg {
+        height: 46px; }
+      .App .main-content .login-warpper .ant-form-item-control button {
+        padding: 0;
+        width: 46%; }
+        .App .main-content .login-warpper .ant-form-item-control button.login-form-button {
+          float: left;
+          background: #F38232;
+          border: none;
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2); }
+        .App .main-content .login-warpper .ant-form-item-control button.register-form-button {
+          float: right;
+          background: #24BBAC;
+          border: none;
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2); }
+      .App .main-content .login-warpper .has-error .ant-form-explain {
+        position: absolute;
+        top: 14px;
+        right: 7px;
+        z-index: 1; }
+      .App .main-content .login-warpper .login-facebook {
+        position: relative;
+        text-align: center;
+        margin: auto;
+        margin-top: 15px;
+        width: 85%; }
+        .App .main-content .login-warpper .login-facebook img {
+          cursor: pointer; }
+    .App .main-content .register-warpper .backhome {
+      text-align: center; }
+    .App .main-content .register-warpper .ant-form-item-control button {
+      width: 100%; }
+    .App .main-content .video-preview {
+      position: relative; }
+      .App .main-content .video-preview .video {
+        width: 60%;
+        height: 200px;
+        margin: auto;
+        margin-top: 10px;
+        border: 4px solid #ffffff;
+        border-radius: 4px;
+        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2); }
+        .App .main-content .video-preview .video .video-react {
+          width: 100% !important;
+          height: 100% !important; }
+        .App .main-content .video-preview .video iframe {
+          position: inherit !important; }
+      .App .main-content .video-preview .bg img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -55px;
+        width: 85%;
+        margin: auto; }
+    .App .main-content .question {
+      width: 80%;
+      margin: auto; }
+      .App .main-content .question .choice {
+        background: #ffffff;
+        padding: 20px 30px;
+        border: 2px solid #F89448;
+        border-radius: 14px; }
+        .App .main-content .question .choice .title {
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 5px; }
+        .App .main-content .question .choice .list .ant-radio-wrapper {
+          display: block;
+          line-height: 24px; }
+          .App .main-content .question .choice .list .ant-radio-wrapper span {
+            font-size: 14px; }
+    .App .main-content .answer {
+      width: 80%;
+      margin: auto; }
+      .App .main-content .answer .topic img {
+        /*height: 30px;
+    				width: inherit;*/ }
+      .App .main-content .answer .share-btn {
+        position: relative;
+        cursor: pointer;
+        width: 60%;
+        margin: auto; }
+      .App .main-content .answer .share-description {
+        width: 80%;
+        margin: auto; }
+  .App .footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    z-index: 100; }
+    .App .footer ul li img {
+      position: absolute;
+      bottom: 0;
+      width: 50%;
+      cursor: pointer; }
+    .App .footer ul li:first-child img {
+      left: 0;
+      border-left: 1px solid #eeeeee; }
+    .App .footer ul li:last-child img {
+      right: 0;
+      border-right: 1px solid #eeeeee; }
+
+body .ant-input {
+  font-size: 16px; }
+
+body .ant-modal {
+  max-width: 350px;
+  margin: auto; }
+
+body .ant-modal-title {
+  text-align: center;
+  color: #6D6D6D;
+  font-size: 18px; }
+
+body .ant-modal-close {
+  left: -14px;
+  top: -14px;
+  background: #24BBAC;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 2px solid #ffffff; }
+
+body .ant-modal-close-x {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #ffffff;
+  font-size: 16px; }
+
+body .ant-modal-content {
+  background: #F4F4F4;
+  padding-bottom: 20px; }
+
+body .ant-modal-header {
+  background: #F4F4F4;
+  border: 0; }
+
+body .ant-modal-body {
+  background: #ffffff;
+  margin: 0 20px; }
+
+body .award-modal .content {
+  text-align: center; }
+  body .award-modal .content .title {
+    color: #F89448;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold; }
+  body .award-modal .content .price,
+  body .award-modal .content .des {
+    color: #6D6D6D; }
+
+body .ant-radio-wrapper:hover .ant-radio .ant-radio-inner {
+  border-color: #D9D9DB !important; }
+
+body .ant-radio-wrapper:active .ant-radio .ant-radio-inner,
+body .ant-radio-wrapper:focus .ant-radio .ant-radio-inner,
+body .ant-radio-wrapper:visited .ant-radio .ant-radio-inner {
+  border-color: #ED7623 !important; }
+
+@media screen and (min-width: 600px) {
+  body .ant-radio-wrapper:hover .ant-radio .ant-radio-inner {
+    border-color: #ED7623 !important; } }
+
+@media screen and (max-height: 414px) {
+  .App .main-content {
+    padding-bottom: 40px; } }
+
+@media screen and (max-height: 500px) {
+  .App .footer ul li img {
+    bottom: inherit; } }
+
+@media screen and (min-width: 500px) and (max-height: 750px) {
+  .App .main-content .answer {
+    width: 70%; } }
+
+@media screen and (min-width: 500px) and (max-height: 715px) {
+  .App .main-content .login-warpper {
+    width: 50%; }
+  .App .main-content .video-preview .video {
+    width: 50%;
+    height: 170px; }
+  .App .main-content .video-preview .bg img {
+    width: 70%; } }
+
+@media screen and (min-width: 500px) and (max-height: 680px) {
+  .App .main-content .question {
+    width: 70%; } }
+
+@media screen and (min-width: 500px) and (max-height: 640px) {
+  .App .main-content .question {
+    width: 60%; } }
+
+@media screen and (min-height: 501px) {
+  .App {
+    height: 100vh; } }
+
+@media screen and (max-width: 320px) and (max-height: 568px) {
+  .App .logo {
+    padding-top: 60px; }
+  .App .main-content .login-warpper .ant-input-lg {
+    height: 35px; }
+  .App .main-content .login-warpper .ant-form-item-control button {
+    height: 24px;
+    font-size: 12px; }
+  .App .main-content .video-preview .video {
+    height: 80%; } }
+
+@media screen and (max-width: 500px) {
+  body .ant-modal {
+    width: 75vw !important; } }
+
+@media screen and (max-width: 414px) {
+  .App .main-content .video-preview .video {
+    height: 150px; }
+  .App .main-content .login-warpper {
+    width: 80%; } }
+
+@media screen and (max-height: 630px) and (min-width: 400px) {
+  .App .logo {
+    padding-top: 85px; }
+  .App .main-content .login-warpper {
+    width: 50%; }
+  .App .main-content .login-warpper .ant-input-lg {
+    height: 36px; }
+  .App .main-content .login-warpper .ant-form-item-control button {
+    height: 26px; }
+  .App .main-content .video-preview .video {
+    width: 50%;
+    height: 135px; }
+  .App .main-content .login-warpper .login-facebook {
+    width: 75%; } }
+
+@media screen and (max-height: 690px) and (min-width: 400px) {
+  .App .main-content .login-warpper .ant-input-lg {
+    height: 40px; }
+  .App .main-content .login-warpper .ant-form-item-control button {
+    height: 29px; }
+  .App .logo {
+    width: 37%; }
+  .App .main-content .video-preview .video {
+    width: 45%;
+    height: 150px; }
+  .App .main-content .login-warpper {
+    width: 45%; } }
+
+@media screen and (max-height: 610px) and (max-width: 400px) {
+  .App .logo {
+    width: 45%;
+    padding-top: 80px; }
+  .App .main-content .login-warpper .ant-input-lg {
+    height: 38px; } }
+
+@media screen and (min-width: 435px) and (max-height: 670px) {
+  .App .main-content .answer {
+    width: 70%; } }
+
+@media screen and (min-width: 435px) and (max-height: 585px) {
+  .App .main-content {
+    padding-top: 10px; }
+  .App .main-content .answer {
+    width: 55%; } }
+
+@media screen and (min-width: 435px) and (max-height: 655px) {
+  .App .main-content .answer {
+    width: 60%; } }

@@ -1,0 +1,33 @@
+{
+  "name": "tor",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^2.13.0",
+    "firebase": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.4",
+    "node-sass-chokidar": "0.0.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-firebase": "^2.2.6",
+    "react-fontawesome": "^1.6.1",
+    "react-frame-component": "^1.1.1",
+    "react-html5video": "^2.3.0",
+    "react-iframe": "^1.0.7",
+    "redux": "^3.7.2",
+    "video-react": "^0.8.8"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.4.0",
+    "react-scripts": "1.0.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
