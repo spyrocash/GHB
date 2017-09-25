@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Modal, Radio } from 'antd';
+import { Form, Input, Button, Modal, Radio, Spin } from 'antd';
 import FontAwesome from 'react-fontawesome';
 import * as firebase from 'firebase';
 import { Player } from 'video-react';
@@ -51,6 +51,7 @@ class App extends Component {
     currentQuestion: 1,
     maxQuestion: 3,
     answer: Math.floor(Math.random() * 5) + 1,
+    loading: true,
   }
 
   constructor(props) {
@@ -109,12 +110,18 @@ class App extends Component {
     // });
 
     firebase.auth().getRedirectResult().then(function(result) {
+      _self.setState({
+        loading: false,
+      });
       const user = result.user;
       if (user) {
         _self.saveUser(user, result.additionalUserInfo);
         _self.setLogin(true);
       }
     }).catch(function(error) {
+      _self.setState({
+        loading: false,
+      });
       // const errorCode = error.code;
       const errorMessage = error.message;
       // const email = error.email;
@@ -440,67 +447,69 @@ class App extends Component {
   }
 
   render() {
-    const { login, visibleRuleModal, visibleAwardModal, currentQuestion, maxQuestion, registerPage } = this.state;
+    const { login, visibleRuleModal, visibleAwardModal, currentQuestion, maxQuestion, registerPage, loading } = this.state;
 
     return (
-      <div className="App">
-        <div className="header"></div>
-        <div className="logo">
-          <img src={logo} alt="" />
-        </div>
-        <div className="main-content">
-          {registerPage ? (
-            this.renderRegisterPage()
-          ) : (
-            <div>
-              {login ? (
-                <div>
-                  {currentQuestion <= maxQuestion ? (
-                    this.renderQuestion(currentQuestion)
-                  ) : (
-                    this.renderAnswer()
-                  )}
-                </div>
-              ) : (
-                this.renderHomePage()
-              )}
-            </div>
-          )}
-        </div>
-        <div className="footer">
-          <ul>
-            <li><a onClick={this.showRuleModal}><img src={btnRule} alt="" /></a></li>
-            <li><a onClick={this.showAwardModal}><img src={btnAward} alt="" /></a></li>
-          </ul>
-        </div>
-        <Modal
-          wrapClassName="rule-modal"
-          title="กติกาและเงื่อนไข"
-          visible={visibleRuleModal}
-          onCancel={this.handleCancelRuleModal}
-          footer={null}
-        >
-          <div>
-            <img src={rulesImage} alt="" />
+      <Spin tip="Loading..." spinning={loading}>
+        <div className="App">
+          <div className="header"></div>
+          <div className="logo">
+            <img src={logo} alt="" />
           </div>
-        </Modal>
-        <Modal
-          wrapClassName="award-modal"
-          title="รางวัล"
-          visible={visibleAwardModal}
-          onCancel={this.handleCancelAwardModal}
-          footer={null}
-        >
-          <div className="content">
-            <div className="image">
-              <img src={awardImg} alt="" />
-            </div>
-            <div>
-              <img src={awardText} alt="" />
-            </div>
+          <div className="main-content">
+            {registerPage ? (
+              this.renderRegisterPage()
+            ) : (
+              <div>
+                {login ? (
+                  <div>
+                    {currentQuestion <= maxQuestion ? (
+                      this.renderQuestion(currentQuestion)
+                    ) : (
+                      this.renderAnswer()
+                    )}
+                  </div>
+                ) : (
+                  this.renderHomePage()
+                )}
+              </div>
+            )}
           </div>
-        </Modal>
-      </div>
+          <div className="footer">
+            <ul>
+              <li><a onClick={this.showRuleModal}><img src={btnRule} alt="" /></a></li>
+              <li><a onClick={this.showAwardModal}><img src={btnAward} alt="" /></a></li>
+            </ul>
+          </div>
+          <Modal
+            wrapClassName="rule-modal"
+            title="กติกาและเงื่อนไข"
+            visible={visibleRuleModal}
+            onCancel={this.handleCancelRuleModal}
+            footer={null}
+          >
+            <div>
+              <img src={rulesImage} alt="" />
+            </div>
+          </Modal>
+          <Modal
+            wrapClassName="award-modal"
+            title="รางวัล"
+            visible={visibleAwardModal}
+            onCancel={this.handleCancelAwardModal}
+            footer={null}
+          >
+            <div className="content">
+              <div className="image">
+                <img src={awardImg} alt="" />
+              </div>
+              <div>
+                <img src={awardText} alt="" />
+              </div>
+            </div>
+          </Modal>
+        </div>
+      </Spin>
     );
   }
 }
